@@ -1,0 +1,32 @@
+.collection-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  background: #ffffff;
+  margin-top: 15px;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #777;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #0a8a60;
+  font-weight: 600;
+}
+
+.tab-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #0a8a60; /* 초록색 밑줄 */
+}

@@ -1,0 +1,90 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  animation: scaleIn 0.2s ease;
+}
+
+/* 등장 애니메이션 */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin: 12px 0 20px;
+  color: #111827;
+}
+
+.modal-message {
+  font-size: 15px;
+  color: #4b5563;
+  margin-bottom: 25px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 14px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* 취소 버튼 (연한 회색) */
+.modal-btn.cancel {
+  background: #e5e7eb;
+  color: #374151;
+}
+.modal-btn.cancel:hover {
+  background: #d1d5db;
+}
+
+/* 확인 버튼 (초록 포인트 컬러) */
+.modal-btn.confirm {
+  background: #008a69;
+  color: #ffffff;
+}
+.modal-btn.confirm:hover {
+  background: #059669;
+}
+
+/* 로딩 모드일 땐 패딩 제거 */
+.modal-container.loading-mode {
+  padding: 0; /* 🔥 기존 padding 제거 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

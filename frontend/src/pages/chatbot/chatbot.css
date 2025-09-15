@@ -1,0 +1,294 @@
+/* ===== iOS 톤 + 상단 히어로 곡선 (Chatbot Overlay) ===== */
+:root {
+  --cb-max-w: 350px;
+  --cb-max-h: 80svh;
+
+  --bg: #f6f8fb;
+  --panel: #ffffff;
+  --border: #eceff3;
+
+  --bot-bubble: #ffffff;
+  --bot-bubble-border: #e7ebf0;
+
+  --user-bubble: #37be91;
+  --user-text: #ffffff;
+
+  --brand: #008a69;
+  --brand-dark: #006f54;
+
+  --ink: #1f2937;
+  --muted: #6b7280;
+
+  --radius-panel: 26px;
+  --radius-bubble: 22px;
+
+  --pad: 14px;
+  --btn-h: 46px;
+
+  /* ⬇️ 히어로 이미지 사이즈/겹침(절반) */
+  --hero-img: 80px;
+  --hero-overlap: calc(var(--hero-img) * 0.5);
+}
+
+/* Root & Backdrop */
+.cb-root {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  font-family: var(--font);
+}
+.cb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+}
+
+/* Panel */
+.cb-panel {
+  position: relative;
+  width: min(92vw, var(--cb-max-w));
+  height: min(var(--cb-max-h), 700px);
+  background: var(--panel);
+  border-radius: var(--radius-panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: cb-pop 0.18s ease-out;
+}
+@keyframes cb-pop {
+  from {
+    transform: translateY(8px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Hero (image-only header with curved bottom) */
+.cb-hero {
+  position: relative;
+  height: 100px; /* 곡선 + 이미지 영역 확보 */
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+}
+.cb-hero::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1px; /* 본문과 정확히 맞닿게 */
+  width: 120%;
+  height: 170px; /* 곡선 깊이 */
+  background: var(--bg); /* 본문 배경으로 '오목한' 효과 */
+  border-radius: 0 0 50% 50%;
+
+  pointer-events: none;
+  background: linear-gradient(#ffffff 100%);
+  z-index: 1; /* 이미지보다 뒤 */
+}
+.cb-hero-img {
+  width: var(--hero-img);
+  height: var(--hero-img);
+  border-radius: 999px;
+  object-fit: cover;
+  background: #008a69;
+  border: 4px solid #f1faf9;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+
+  /* ⬇️ 절반 겹치도록 아래로 내리고, 곡선 위로 보이게 */
+  transform: translateY(var(--hero-overlap));
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+/* Glass back button (top-left) */
+.cb-back2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.85);
+  color: #6b7280;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 3; /* 이미지/곡선 위에 */
+}
+
+/* Body (messages area) */
+.cb-body {
+  position: relative;
+  z-index: 0;
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg);
+
+  /* ⬇️ 겹친 만큼 상단 여백을 추가해 버블이 이미지랑 겹치지 않게 */
+  padding: calc(var(--pad) + var(--hero-overlap)) var(--pad) var(--pad);
+  /* ⬇️ 스크롤 개선 */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+  scroll-behavior: smooth; /* 맨 아래 스크롤 자연스럽게 */
+  overscroll-behavior: contain; /* 위/아래 튐 방지 */
+  /* ⬇️ 스크롤바 숨김 */
+  /* scrollbar-width: none; Firefox */
+}
+/* ===== 커스텀 스크롤바 (일반 색상) ===== */
+.cb-body::-webkit-scrollbar {
+  width: 6px; /* 얇게 */
+}
+.cb-body::-webkit-scrollbar-track {
+  background: transparent; /* 배경 투명 */
+}
+.cb-body::-webkit-scrollbar-thumb {
+  background: #cfcfcf; /* 연한 회색 */
+  border-radius: 999px; /* 둥글게 */
+}
+.cb-body::-webkit-scrollbar-thumb:hover {
+  background: #8c8c8c; /* hover 시 진회색 */
+}
+/* Messages */
+.cb-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cb-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  animation: cb-fadein 0.16s ease-out;
+}
+@keyframes cb-fadein {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.cb-row.bot {
+  justify-content: flex-start;
+}
+.cb-row.user {
+  justify-content: flex-end;
+}
+
+/* Bubbles */
+.cb-bubble {
+  max-width: 76%;
+  padding: 10px 13px;
+  font-size: 15px;
+  line-height: 1.45;
+  border-radius: var(--radius-bubble);
+  word-break: break-word;
+}
+.cb-bubble.bot {
+  background: var(--bot-bubble);
+  color: var(--ink);
+  border: 1px solid var(--bot-bubble-border);
+  border-radius: 8px 18px 18px 18px;
+}
+.cb-bubble.user {
+  background: var(--user-bubble);
+  color: var(--user-text);
+  border-radius: 18px 18px 8px 18px;
+}
+
+/* Input bar */
+.cb-inputbar {
+  display: grid;
+  grid-template-columns: 1fr 46px;
+  gap: 8px;
+  padding: 10px var(--pad);
+  background: var(--bg);
+}
+.cb-input {
+  height: var(--btn-h);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 14px;
+  font-size: 15px;
+  background: #fff;
+}
+.cb-input:focus {
+  outline: none;
+  border-color: #d8dee6;
+}
+
+/* Send button (round, paper plane) */
+.cb-send-circle {
+  height: var(--btn-h);
+  width: var(--btn-h);
+  border-radius: 999px;
+  border: 0;
+  background: var(--brand);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.08s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(46, 199, 201, 0.28);
+}
+.cb-send-circle:hover {
+  background: var(--brand-dark);
+}
+.cb-send-circle:active {
+  transform: scale(0.97);
+}
+.cb-send-circle:disabled {
+  opacity: 0.6;
+  cursor: default;
+  box-shadow: none;
+}
+/* X 닫기 버튼 */
+.cb-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  background: none; /* 배경 없음 */
+  border: none; /* 테두리 없음 */
+  color: #444; /* 은은한 회색 (너무 진하지 않음) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.cb-close svg {
+  stroke: currentColor;
+  stroke-width: 1.5; /* 얇은 iOS 느낌 */
+}
+
+.cb-close:hover {
+  opacity: 0.7; /* 호버 시 은은하게 */
+}
+
+.cb-close:active {
+  transform: scale(0.9); /* 눌렀을 때만 살짝 줄어듦 */
+}
+/* 메시지 시간 */
+.cb-time {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  text-align: right;
+}

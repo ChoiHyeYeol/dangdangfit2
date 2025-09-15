@@ -1,0 +1,10 @@
+export { default as startImg } from "./surveystart.png";
+export { default as endImg } from "./surveyend.png";
+export { default as bg } from "./surveybackground.png";
+export { default as simpleMeal } from "./simpleMeal.png";
+export { default as meal } from "./meal.png";
+export { default as simpleMeal_active } from "./simpleMeal_active.png";
+export { default as meal_active } from "./meal_active.png";
+export { default as searchIcon } from "./search.svg";
+export { default as warnIcon } from "./warning.png";
+export { default as search_activeIcon } from "./search_active.svg";

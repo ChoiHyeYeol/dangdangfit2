@@ -1,0 +1,237 @@
+/* ===============
+   Onboarding.module.css (revised)
+   =============== */
+
+/* 루트: 부모(.app) 영역 안에서만 꽉 채우기 */
+.obRoot {
+  position: relative; /* fixed 제거 */
+  inset: auto; /* 초기화 */
+  width: 100%;
+  height: 100%; /* 부모 높이 채우기 */
+  min-height: 100%;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 16px
+    calc(16px + env(safe-area-inset-bottom, 0px)) 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden; /* 내부 섹션으로 스크롤 관리 */
+}
+
+/* 스크린이 아주 작을 때는 여백 조금 줄이기 */
+@media (max-height: 640px) {
+  .obRoot {
+    padding-top: calc(16px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* 도트 */
+.obDots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: clamp(16px, 5vh, 32px) 0 12px;
+  margin-top: 90px;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  transition: transform 0.25s, background 0.25s;
+  cursor: pointer;
+}
+.active {
+  background: #008a69;
+  transform: scale(1.2);
+}
+
+/* 아트 컨테이너: 높이 줄여서 과대비 노출 방지 */
+.obArt {
+  position: relative;
+  height: clamp(32%, 36vh, 42%); /* 이전 40% → 가변 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  overflow: hidden; /* 이미지 튐 방지 */
+}
+
+/* 배경 이미지 */
+.obBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2; /* 살짝 더 부드럽게 */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 인물 일러스트 */
+.obAction {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  height: 100%; /* 이전 90% → 축소 */
+  max-height: 320px; /* 아주 큰 화면에서도 과대 방지 */
+  object-fit: contain;
+  object-position: center 65%;
+  transform: translateY(6%); /* 이전 10% → 완화 */
+  will-change: transform, opacity;
+  /* image-rendering: -webkit-optimize-contrast; */
+  backface-visibility: hidden;
+}
+
+/* 텍스트 영역 */
+.obCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px 0;
+  /* 긴 번역/줄바꿈 대비해 아래 여백 확보 */
+}
+
+/* 타이틀: 크기 가변 + 자간/행간 안정화 */
+.obTitle {
+  white-space: pre-line;
+  font-size: clamp(16px, 2.8vw, 18px); /* 이전 20px → 축소 + 가변 */
+  font-weight: 800;
+  line-height: 1.45;
+  letter-spacing: -0.2px;
+  color: #222;
+  margin: 12px 0 6px;
+  text-align: center;
+}
+
+/* 강조 */
+.obHighlight {
+  font-size: clamp(15px, 2.6vw, 17px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #008a69;
+  margin: 2px 0 0;
+  text-align: center;
+}
+
+/* 건너뛰기 */
+.obSkipCenter {
+  display: block;
+  width: auto;
+  margin: 50px auto 0;
+  background: transparent;
+  border: none;
+  color: #6a8b7c;
+  font-size: 14px; /* 14 → 13 */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 하단 버튼 영역 */
+/* 콘텐츠가 길어지면 버튼은 하단 고정 느낌으로 남기고, 
+   자체 내부 스크롤이 필요할 때를 대비해 여백 조정 */
+.obNav {
+  margin-top: auto; /* 아래로 밀착 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 110px);
+  gap: 10px;
+}
+
+.obNavSingle {
+  justify-content: center;
+}
+
+.obNavTwo {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+/* 버튼 */
+.obLogin,
+.obSignup {
+  display: block;
+  padding: 13px 16px; /* 10x18 → 살짝 컴팩트 */
+  font-size: 14px; /* 15 → 14 */
+  font-weight: 800;
+  border-radius: 10px; /* 20 → 18 */
+  cursor: pointer;
+
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
+
+  border: none;
+  outline: none;
+  transition: transform 0.06s ease;
+}
+
+.obLogin {
+  background: #008a69;
+  color: #fff;
+}
+.obSignup {
+  background: #fff;
+  color: #008a69;
+  border: 1px solid #008a69;
+}
+
+.obLogin:active,
+.obSignup:active {
+  transform: scale(0.985);
+}
+
+/* 작은 화면(세로 짧음) 튜닝 */
+@media (max-height: 640px) {
+  .obArt {
+    height: 34vh;
+  }
+  .obAction {
+    height: 72%;
+    max-height: 280px;
+  }
+  .obTitle {
+    font-size: clamp(15px, 2.6vw, 17px);
+  }
+  .obHighlight {
+    font-size: clamp(14px, 2.4vw, 16px);
+  }
+}
+
+/* 아주 큰 화면에서도 비율 과대 방지 */
+@media (min-height: 920px) {
+  .obArt {
+    height: 38%;
+  }
+  .obAction {
+    max-height: 360px;
+  }
+}
+
+/* 모션 선호하지 않는 사용자 */
+@media (prefers-reduced-motion: reduce) {
+  .dot,
+  .active,
+  .obLogin,
+  .obSignup {
+    transition: none !important;
+  }
+}
+.fade {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

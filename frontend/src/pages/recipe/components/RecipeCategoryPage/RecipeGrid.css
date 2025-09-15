@@ -1,0 +1,9 @@
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2열 */
+  gap: 30px;
+
+  max-width: 350px; /* ✅ 그리드 전체 폭 제한 */
+  margin: 0 auto; /* ✅ 수평 중앙 정렬 */
+  padding: 1px 0 30px; /* 좌우 패딩 빼고 위아래만 */
+}

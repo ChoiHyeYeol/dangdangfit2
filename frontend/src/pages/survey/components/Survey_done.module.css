@@ -1,0 +1,95 @@
+/* src/features/survey/Survey_done.module.css */
+
+/* 로컬에서 색 변수(공통 토큰 없을 때 대비).
+   공통 토큰이 이미 있다면 이 값만 그 토큰으로 교체해줘요. */
+:root {
+  --cPrimary: #18a77b; /* 반짝이 청록 톤 */
+  --cText: #0f5132; /* 메시지 텍스트(진한 청록) */
+  --cBG: #ffffff;
+}
+
+.surveyContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 24px 16px;
+  background: var(--cBG);
+  box-sizing: border-box;
+
+  /* 세로 배치: 일러스트-텍스트-버튼 */
+  align-items: center;
+  justify-content: space-between; /* 하단 버튼을 바닥으로 */
+}
+
+/* 일러스트 박스 */
+.illustrationWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; /* 상태바/노치 여백 고려 */
+}
+
+.illustrationImg {
+  width: 68%;
+  max-width: 320px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 메시지 */
+.messageBox {
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.messageTitle {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cText);
+}
+
+.messageSub {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cText);
+}
+
+/* CTA 버튼: 하단 고정 느낌 */
+.ctaButton {
+  width: 100%;
+  max-width: 480px;
+  height: 48px;
+  border: none;
+  border-radius: 999px; /* pill */
+  background: var(--cPrimary);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  margin-bottom: 12px; /* 하단 안전 여백 */
+  box-shadow: 0 6px 16px rgba(24, 167, 123, 0.25);
+  transition: transform 0.05s ease, filter 0.2s ease;
+}
+
+.ctaButton:active {
+  transform: translateY(1px);
+  filter: brightness(0.96);
+}
+
+/* 작은 화면 보정 (예: 320~360폭) */
+@media (max-width: 360px) {
+  .illustrationImg {
+    width: 74%;
+  }
+  .messageTitle {
+    font-size: 17px;
+  }
+  .messageSub {
+    font-size: 15px;
+  }
+}

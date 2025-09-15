@@ -1,0 +1,156 @@
+.pg-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: var(--card-radius, 16px);
+  width: 93%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr; /* 왼쪽(혈당) | 구분선 | 오른쪽(병원) */
+  column-gap: 16px;
+  align-items: stretch;
+  margin: -50px auto 20px;
+  position: relative;
+  z-index: 2;
+
+  box-shadow: 0 -2px 3px -1px rgba(0, 0, 0, 0.05),
+    0 6px 12px -2px rgba(0, 0, 0, 0.08);
+}
+
+.pg-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 70px; /* ✅ 고정 높이 */
+  gap: 12px; /* ✅ 라벨과 아래 요소 간격 */
+}
+
+.pg-label {
+  font-size: 14px;
+  font-weight: 800;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 아이콘과 글자 간격 */
+  margin-bottom: 4px; /* 라벨과 아래 내용 사이 여백 */
+}
+
+/* ====== 값 없을 때 버튼 ====== */
+.pg-empty {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #666;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  line-height: 1.5; /* ✅ 줄간격 조금 넓게 */
+  white-space: normal; /* ✅ 줄바꿈 허용 */
+  word-break: keep-all; /* ✅ 단어 단위로 줄바꿈 */
+}
+
+.pg-empty span.plus {
+  flex-shrink: 0; /* + 기호 고정 */
+  margin-top: 2px;
+  color: #888;
+}
+
+/* ====== 인라인 아이콘 ====== */
+.pg-icon-inline {
+  width: 20px;
+  height: 20px;
+  opacity: 0.9;
+}
+
+/* ====== D-Day ====== */
+.pg-dday-only {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ef4444;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* ====== 혈당 게이지 ====== */
+.pg-gauge {
+  width: 120px;
+  height: 64px;
+  cursor: pointer;
+}
+
+/* 구분선 */
+.pg-divider {
+  width: 1px;
+  align-self: stretch;
+  background: #e5e7eb;
+  opacity: 0.9;
+}
+.pg-icon-inline {
+  width: 18px;
+  height: 18px;
+  color: #008a69; /* 아이콘 기본 색상 */
+  flex-shrink: 0;
+}
+.pg-glucose-value,
+.pg-dday-value {
+  font-size: 28px;
+  font-weight: 900;
+  cursor: pointer;
+  position: relative;
+  padding: 4px 10px; /* ✅ 박스 여백 */
+  border-radius: 8px; /* ✅ 둥근 모서리 */
+  transition: all 0.2s ease;
+}
+
+.pg-glucose-value:hover,
+.pg-dday-value:hover {
+  background: rgba(0, 0, 0, 0.05); /* ✅ hover 시 박스 배경 */
+  transform: translateY(-2px); /* ✅ 살짝 위로 올라오기 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); /* ✅ 그림자 효과 */
+}
+
+.pg-unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+.pg-dday-value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 5px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.pg-dday-value:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 일반 숫자 */
+.pg-dday-number {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+/* 설명 텍스트 */
+.pg-dday-suffix {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* 오늘 전용 */
+.pg-dday-today {
+  font-size: 22px; /* ✅ 숫자보다 살짝 작게 */
+  font-weight: 800;
+  color: #ef4444; /* 강조 빨강 */
+}

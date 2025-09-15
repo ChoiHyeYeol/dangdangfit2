@@ -1,0 +1,182 @@
+/* ===== 리스트 컨테이너 ===== */
+.survey-edit-wrap {
+  padding: 16px;
+  position: relative;
+}
+
+.survey-edit-title {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.survey-edit-sub {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.survey-edit-list {
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.survey-edit-item {
+  margin: 0;
+  padding: 0;
+}
+
+.survey-edit-button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 32px 1fr 18px;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.04s ease;
+}
+
+.survey-edit-button:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.survey-edit-button:active {
+  transform: translateY(1px);
+}
+
+.survey-edit-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 13px;
+  color: #111827;
+  background: #f1f5f9;
+}
+
+.survey-edit-question {
+  font-size: 14px;
+  color: #111827;
+}
+
+.survey-edit-chevron {
+  font-size: 18px;
+  color: #9ca3af;
+}
+
+.survey-edit-help {
+  margin: 14px 2px 4px;
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.55;
+}
+
+.survey-edit-loading {
+  padding: 28px 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ===== 프레임(.app) 내부 오버레이 (헤더 포함 중앙) ===== */
+.branch-modal-overlay--frame {
+  position: absolute; /* ✅ .app 기준으로 덮음(헤더 포함) */
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 24, 39, 0.45); /* 약간 더 진한 오버레이 */
+  z-index: 50; /* .app 내부 최상단 */
+}
+
+/* 모달 카드 공통 스타일 */
+.branch-modal-card {
+  width: min(520px, 92%);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  position: relative;
+  border: 1px solid #e5e7eb;
+}
+
+.branch-modal-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.branch-modal-desc {
+  color: #4b5563;
+  margin: 0 0 12px;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.branch-modal-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.branch-modal-sep {
+  height: 1px;
+  background: #eef2f7;
+  margin: 10px 0;
+}
+
+.branch-btn {
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+}
+.branch-btn.primary {
+  background: #2563eb;
+  color: #fff;
+}
+.branch-btn.ghost {
+  background: #f1f5f9;
+  color: #111827;
+}
+.branch-btn.outline {
+  background: #fff;
+  border-color: #d1d5db;
+  color: #111827;
+}
+.branch-btn.text {
+  background: transparent;
+  color: #6b7280;
+}
+
+.branch-modal-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+/* ===== 프레임 내부 스크롤 락 (content-scroll만) ===== */
+.content-scroll.is-locked {
+  overflow: hidden;
+}

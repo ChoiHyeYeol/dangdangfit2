@@ -1,0 +1,89 @@
+.header {
+  background: #ddf0ea;
+  /* border-bottom: 1px solid #ddd; */
+  padding: 30px 20px 60px;
+  display: flex;
+  flex-direction: column; /* 위아래 쌓이게 */
+  gap: 20px;
+  /* padding-bottom: 70px; */
+  position: relative; /* 카드 겹칠 수 있도록 */
+}
+
+/* 상단: 로고 + 종 */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-family: "LOTTERIADDAG", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #008a69;
+}
+
+.bell {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 하단: 아이콘 + 텍스트 */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 원 배경 */
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f9d6a5; /* 옅은 빨강/분홍 톤 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile {
+  width: 28px;
+  height: 35px;
+}
+
+.header-text {
+  flex: 1; /* 👈 옆 공간을 꽉 채우도록 */
+}
+
+.header-text p {
+  margin: 7px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.header-text p:first-child {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #029b77; /* 👈 안녕하세요~ 와 아래 텍스트 사이에 선 */
+}
+
+/* .highlight {
+  font-weight: 700;
+  color: #2e7d32;
+  width: 100%;
+} */
+
+.nicksyle {
+  font-size: 18px;
+  font-weight: 800;
+}
+/* ✅ 임신 주차 텍스트 스타일 */
+.pregweek-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.pregweek-highlight {
+  font-weight: 800;
+  color: #008a69; /* 초록 톤 강조 */
+}

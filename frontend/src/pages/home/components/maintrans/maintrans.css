@@ -1,0 +1,63 @@
+/* 카드 위 섹션 타이틀 */
+.main-trans-section-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 12px;
+  margin-left: 5px;
+}
+
+/* 카드 본체 */
+.main-trans-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: inherit;
+  /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.08); */
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.08),
+    /* 위쪽 */ 0 4px 6px rgba(0, 0, 0, 0.08); /* 아래쪽 */
+}
+
+/* 아이콘 */
+.main-trans-icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+  background-color: #fff;
+}
+
+/* 텍스트 묶음 */
+.main-trans-texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 보조 텍스트 */
+.main-trans-sub {
+  font-size: 13px;
+  color: #000000;
+  margin-bottom: 3px;
+  line-height: 1.6;
+}
+
+/* 대표 텍스트 */
+.main-trans-main {
+  font-size: 16px;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.4;
+}
+
+/* 오른쪽 화살표 */
+.main-trans-chevron {
+  font-size: 18px;
+  color: #2b2b2b;
+  margin-left: 8px;
+}
+.main-trans-wrapper {
+  margin-bottom: 30px;
+}

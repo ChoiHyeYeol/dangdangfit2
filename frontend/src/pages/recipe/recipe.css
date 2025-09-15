@@ -1,0 +1,56 @@
+/* app.css 또는 Recipe.css */
+
+.section-divider {
+  width: 100%;
+  height: 5px; /* 구분선의 높이 */
+  background-color: #f0f0f0; /* 회색 배경색 */
+  margin: 15px 0; /* 위아래 여백 */
+  /* border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; */
+}
+
+.recipe-scroll {
+  padding-bottom: max(85px, calc(56px + env(safe-area-inset-bottom, 0px)));
+}
+/* 로딩 컨테이너 */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 0;
+  color: #008a69; /* 메인 컬러 */
+}
+
+/* 로딩 스피너 */
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #e0e0e0; /* 회색 */
+  border-top: 4px solid #008a69; /* 메인컬러 강조 */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 로딩 텍스트 */
+.loading-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* 에러 텍스트 */
+.error-text {
+  text-align: center;
+  padding: 20px;
+  color: #e53935; /* 빨강 */
+  font-weight: 600;
+}

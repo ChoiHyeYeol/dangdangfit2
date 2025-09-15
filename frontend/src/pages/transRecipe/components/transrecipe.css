@@ -1,0 +1,78 @@
+.trp-screen {
+  display: flex;
+  flex-direction: column;
+  height: calc(100svh - 60px); /* 사파리 대응 */
+  padding: 24px 20px;
+  background: #fff;
+  overflow-y: auto; /* 필요시 스크롤 */
+}
+
+/* 설명 텍스트 */
+.trp-desc {
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 32px;
+  text-align: left;
+  line-height: 1.5;
+}
+
+/* 입력 */
+.trp-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.trp-input-wrap {
+  position: relative;
+  width: 100%;
+  margin-bottom: auto; /* 버튼을 아래로 밀어냄 */
+}
+
+.trp-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid #ddd;
+  padding: 10px 0;
+  font-size: 16px;
+  background: transparent;
+  color: #333;
+}
+.trp-input:focus {
+  outline: none;
+  border-color: #008a69;
+}
+.trp-placeholder {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 13px;
+  color: #aaa;
+  pointer-events: none;
+}
+
+/* 버튼 (화면 하단 고정) */
+.trp-submit {
+  margin-top: auto; /* 항상 하단에 위치 */
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #c3dfd8;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: not-allowed;
+}
+.trp-submit.active {
+  background-color: #008a69;
+  cursor: pointer;
+}
+.trp-submit.active:hover {
+  background-color: #007258;
+}
+.trp-submit.active:active {
+  transform: scale(0.98);
+}

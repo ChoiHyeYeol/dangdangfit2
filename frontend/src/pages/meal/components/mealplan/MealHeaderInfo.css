@@ -1,0 +1,38 @@
+.meal-header-info {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.meal-progress {
+  font-size: 14px !important;
+  margin: 0;
+  color: #333;
+  padding-left: 10px;
+}
+
+.meal-progress .nickname {
+  color: #007a5a;
+  font-weight: 600;
+}
+
+.meal-progress .highlight {
+  color: #007a5a;
+  font-weight: 700;
+}
+
+/* 날짜 라인 */
+.meal-date {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 11px 0 0; /* 위쪽과 간격 */
+  padding-left: 9px; /* 🔥 오른쪽으로 살짝 밀기 */
+}
+
+.meal-date .date-text {
+  color: #000;
+}
+
+.meal-date .today-text {
+  color: #ff4d4f;
+  font-weight: 700;
+}

@@ -1,0 +1,72 @@
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 30px;
+  padding-bottom: 30px;
+  background: #fff;
+}
+
+.ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+  color: #333;
+  padding: 8px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.ingredient-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 기본 체크박스 숨기고 네모 박스 스타일 만들기 */
+.ingredient-left input[type="checkbox"] {
+  appearance: none; /* 브라우저 기본 스타일 제거 */
+  -webkit-appearance: none; /* 사파리 대응 */
+  width: 19px;
+  height: 19px;
+  border: 2px solid #ccc;
+  border-radius: 4px; /* 살짝 둥근 모서리 */
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* 체크됐을 때 */
+.ingredient-left input[type="checkbox"]:checked {
+  background-color: #76a37c; /* ✅ 초록색 배경 */
+  border-color: #76a37c;
+}
+
+/* 체크 표시 (✓) */
+.ingredient-left input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 13px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+}
+
+.ingredient-amount {
+  font-weight: 500;
+  color: #444;
+}
+.empty-message {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 600;
+}
+.substitute-label {
+  color: #008a69; /* 메인 초록 */
+  font-weight: 700;
+  margin-right: 2px; /* 텍스트와 살짝 띄우기 */
+}

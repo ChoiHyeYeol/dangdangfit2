@@ -1,0 +1,350 @@
+/* src/pages/my/my.css */
+:root {
+  --blue: #2676e5;
+  --green: #008a69;
+  --pink: #f61c1c;
+  --purple: #6366f1;
+
+  --ink: #0f172a;
+  --muted: #6b7280;
+
+  --surface: #ffffff;
+  --card: #ddf0ea; /* 연초록 카드 배경 */
+  --inner: #ffffff; /* 카드 안쪽 흰 영역 */
+  --radius-xl: 18px;
+  --radius-lg: 14px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  --shadow-soft: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  --primary: #008a69;
+  --primary-600: #059669;
+}
+
+/* Footer와 겹치지 않게 하단 여백 */
+.my-content-scroll {
+  padding-bottom: max(85px, calc(56px + env(safe-area-inset-bottom, 0px)));
+}
+
+/* ===== 인사 헤더 ===== */
+.my-hero {
+  width: 90%;
+  max-width: 360px;
+  margin: 0 auto 12px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+}
+
+.hero-left {
+  padding: 6px 4px;
+}
+.hero-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 900;
+  color: #111;
+}
+.hero-title .name {
+  color: #111;
+}
+
+.hero-right {
+  display: grid;
+  place-items: center;
+}
+.hero-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+.hero-badge-emoji {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffe7e7;
+  font-size: 30px;
+}
+
+/* ===== 카드 공통 ===== */
+.m-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.m-card {
+  width: 90%;
+  max-width: 360px;
+  background: var(--card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 15px 19px 15px 19px;
+  margin: 0 auto 30px;
+}
+
+.m-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.m-card-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0b1726;
+}
+
+/* 탭 */
+.m-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.m-tab {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #334155;
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+.m-tab.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* 그래프 바깥/안쪽(스크린샷 느낌) */
+.m-graph-outer {
+  background: var(--inner);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  padding-top: 1px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+.m-graph-inner {
+  height: 269px;
+  border-radius: 12px;
+  background: #fff;
+  position: relative;
+  padding: 2px;
+  display: flex;
+  /* align-items: center; */
+  overflow: hidden;
+  margin-bottom: 1px;
+}
+/* 상단 점선 */
+/* .m-graph-inner::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  right: 12px;
+  border-top: 2px dashed rgba(148, 163, 184, 0.35);
+} */
+
+/* 빈 상태 */
+.m-empty {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.m-empty-title {
+  font-weight: 800;
+  color: #111827;
+  font-size: 15px;
+}
+.m-empty-sub {
+  white-space: pre-line; /* 줄바꿈 허용 */
+  line-height: 1.6; /* 줄간격 넓히기 */
+  font-size: 13px;
+  color: #6b7280;
+}
+.m-add-btn {
+  margin-top: 2px;
+  padding: 8px 16px;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.m-add-btn:hover {
+  background-color: var(--primary-600);
+}
+
+/* 범례 */
+.m-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.m-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 0 0 12px;
+}
+.m-blue {
+  background: var(--blue);
+}
+.m-green {
+  background: var(--green);
+}
+.m-pink {
+  background: var(--pink);
+}
+.m-purple {
+  background: var(--purple);
+}
+
+/* ===== 찜목록 카드 ===== */
+.cta-card {
+  width: 90%;
+  max-width: 360px;
+  margin: 0 auto 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cta-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #111;
+}
+.cta-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #8b8f97;
+}
+
+/* ===== 내 정보 관리 ===== */
+/* ===== 내 정보 관리 ===== */
+.my-info-section {
+  width: 100%;
+}
+
+.my-info-divider {
+  height: 5px;
+  background: #f1f1f1;
+  width: 100%;
+  margin: 10px 0 25px;
+}
+
+.my-info-title {
+  width: 90%;
+  max-width: 360px;
+  margin: 0 auto 10px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #111;
+}
+
+.my-info-list {
+  list-style: none; /* 불릿 제거 */
+  padding-left: 0;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 360px;
+}
+
+.my-info-list li::marker {
+  content: none; /* 마커 제거 */
+}
+
+.my-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.my-info-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.my-info-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f5f7fa;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.my-info-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+.my-info-right {
+  font-size: 18px;
+  color: #111;
+}
+
+/* 하단 로그아웃 & 회원탈퇴 */
+.m-account-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+  margin: 18px 0 24px;
+}
+.m-account-actions button,
+.m-account-actions .divider {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+.m-account-actions button:hover {
+  color: var(--primary);
+}
+
+/* 반응형 */
+@media (min-width: 768px) {
+  .my-hero,
+  .m-card,
+  .cta-card,
+  .my-info-title,
+  .my-info-list {
+    max-width: 420px;
+  }
+}

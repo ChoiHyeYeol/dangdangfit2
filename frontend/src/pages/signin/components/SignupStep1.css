@@ -1,0 +1,142 @@
+.signup-container {
+  /* max-width: 360px; */
+  /* margin: 0 auto; */
+  padding: 30px 20px;
+  /* text-align: center; */
+  /* font-family: "Pretendard", sans-serif; */
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  justify-content: center; /*세로 가운데*/
+  flex: 1; /* 남은 공간 차지 */
+  overflow-y: auto; /* ✅ 내부 내용이 넘치면 스크롤 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+.signup-container::-webkit-scrollbar,
+.signup-form-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+/* 회원가입 전용: 왼쪽 정렬 */
+.signup-container .circle-logo {
+  margin: 0; /* 가운데 정렬용 margin 제거 */
+  align-self: flex-start; /* 왼쪽으로 붙게 */
+
+  width: 100px;
+  height: 100px;
+  background-color: #008a69;
+  border-radius: 50%;
+  /* margin: 0 auto; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-bottom: 20px;
+}
+
+.signup-container .kangaroo-img {
+  width: 95px;
+  height: auto;
+}
+
+/* 로고 & 환영 */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 8px;
+  /* margin-top: 30px; */
+}
+/* .logo {
+  width: 70px;
+  height: 70px;
+} */
+.logo-section h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #111;
+  padding-left: 5px;
+}
+
+/* 약관 동의 리스트 */
+.agreement-list {
+  list-style: none;
+  margin: 0;
+  padding: 0; /* ✅ 여백 제거 */
+  display: flex;
+  flex-direction: column;
+  margin-top: 160px;
+  gap: 10px;
+}
+
+/* 전체 동의 항목 */
+.agreement-list li:first-child {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0; /* 위아래만 간격 */
+  margin: 0; /* ✅ margin 제거 */
+}
+
+/* 나머지 항목 */
+.agreement-list li:not(:first-child) {
+  padding: 12px 0; /* 동일한 세로 간격 */
+}
+
+.agreement-list label {
+  display: flex;
+  align-items: center; /* input 과 텍스트를 수직 중앙 정렬 */
+  gap: 8px; /* input과 텍스트 간격 */
+  cursor: pointer;
+}
+
+/* 체크박스 기본 */
+.agreement-list input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #008a69;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+/* 체크된 상태 */
+.agreement-list input[type="checkbox"]:checked {
+  background-color: #008a69;
+  border-color: #008a69;
+}
+
+/* 체크 아이콘을 CSS로 */
+.agreement-list input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  /* top: 1px; */
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* 버튼 */
+.next-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background-color: #008a69;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+.next-btn:hover:enabled {
+  background-color: #007356;
+}
+.next-btn:disabled {
+  background-color: #b5dcd2;
+  cursor: not-allowed;
+}

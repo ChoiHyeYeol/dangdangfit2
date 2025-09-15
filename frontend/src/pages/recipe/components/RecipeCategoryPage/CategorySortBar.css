@@ -1,0 +1,65 @@
+.cat-sortbar {
+  position: relative; /* 기준 컨테이너 */
+  padding: 12px 16px;
+  background: #ffffff;
+  /* border-bottom: 1px solid #eee; */
+}
+
+.cat-sortbar__btn {
+  width: 22%;
+  height: 30px;
+  /* border: 1px solid #c4c4c4; */
+  border-radius: 20px;
+  background-color: #f1f8f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 13px;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.cat-sortbar__arrow {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.cat-sortbar__menu {
+  position: absolute; /* ✅ 오버레이로 띄우기 */
+  /* top: 100%; 버튼 바로 아래 */
+  /* right: 16px; 버튼 오른쪽에 맞추고 싶으면 */
+  z-index: 10;
+
+  width: 200px;
+  margin-top: 6px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cat-sortbar__item {
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  border: none;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+.cat-sortbar__item + .cat-sortbar__item {
+  border-top: 1px solid #f2f2f2;
+}
+
+.cat-sortbar__item.is-active {
+  background: #f7fffb;
+  color: #0a8a60;
+  font-weight: 600;
+}
+.cat-sortbar__check {
+  float: right;
+  color: #0a8a60;
+}

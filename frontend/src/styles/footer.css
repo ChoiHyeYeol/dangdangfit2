@@ -1,0 +1,90 @@
+/* ===== Footer 컨테이너 ===== */
+.footer {
+  position: absolute;
+  inset-inline: 0;
+  bottom: max(0px, env(safe-area-inset-bottom));
+  width: min(100%, var(--app-max, 390px));
+  /* margin: 0 auto; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 65px; */
+  height: var(--footer-h);
+  background: #fff;
+  /* border-radius: 20px; */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 0 12px;
+  z-index: 5;
+}
+
+/* ===== Footer 아이템 ===== */
+.footer-item {
+  flex: 1 1 0;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* 아이콘 공통 */
+.footer-icon {
+  width: 33px; /* 원 크기 줄임 */
+  height: 33px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px; /* 아이콘 크기 살짝 키움 */
+  color: #6b7280;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 아이콘 활성화 */
+.footer-item.is-active .footer-icon {
+  background-color: rgba(0, 138, 105, 0.15); /* 연한 초록 배경 */
+  color: #008a69; /* 아이콘 초록 */
+  /* ✅ 테두리 제거 */
+}
+
+/* 라벨 */
+.footer-label {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 2px; /* 텍스트 더 가까이 */
+  color: #6b7280;
+  /* transition: color 0.25s ease-in-out, transform 0.25s ease-in-out; */
+}
+.footer-item.is-active .footer-label {
+  color: #008a69;
+}
+
+/* ===== 중앙 FAB 버튼 ===== */
+.footer-center {
+  position: relative;
+  top: -8px;
+  background-color: #008a69;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 138, 105, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* ✅ 기존 70 → 줄임 */
+  height: 60px;
+  flex: none;
+  margin-inline: 8px;
+}
+
+.footer-center img {
+  width: 42px; /* ✅ 이미지 크게 */
+  height: 42px;
+  object-fit: contain;
+}
+.footer-item:hover {
+  transform: translateY(-2px); /* hover 시 살짝 위로 */
+}

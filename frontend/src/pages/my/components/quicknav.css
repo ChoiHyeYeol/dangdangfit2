@@ -1,0 +1,66 @@
+:root {
+  --q-ink: #5b5757;
+  /* --q-div: rgba(0, 0, 0, 0.08); */
+}
+
+.qnav {
+  margin: 8px 16px 24px;
+  /* padding: 3px 0; */
+  /* background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%); */
+  border-radius: 16px;
+}
+
+/* 각 행 */
+.qnav-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 18px 20px;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.qnav-row + .qnav-row {
+  border-top: 1px solid var(--q-div);
+}
+
+/* 아이콘 캡슐 */
+.qnav-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  /* box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06); */
+}
+.qnav-icon img {
+  width: 20px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* 라벨 & > */
+.qnav-label {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 750;
+  /* letter-spacing: -0.2px; */
+  color: rgb(34, 34, 34);
+}
+.qnav-chev {
+  font-size: 28px;
+  color: #b5b5b6;
+  margin-left: 6px;
+}
+
+/* 인터랙션 */
+.qnav-row:hover .qnav-label {
+  text-decoration: underline;
+}
+.qnav-row:active {
+  background: rgba(17, 24, 39, 0.03);
+}

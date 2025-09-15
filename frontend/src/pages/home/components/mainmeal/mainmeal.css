@@ -1,0 +1,137 @@
+.tm-wrap {
+  padding: 0 0 10px;
+}
+
+.tm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  /* margin: 4px 0; */
+}
+
+.tm-header .tm-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #000000;
+  /* margin-bottom: 12px; */
+  margin-left: 5px;
+}
+
+.tm-link {
+  border: 0;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 18px; /* 텍스트는 제거, 화살표만 보이게 */
+  cursor: pointer;
+}
+
+/* 가로 스크롤 컨테이너 */
+.tmc-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  user-select: none;
+}
+.tmc-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* 드래그 시 살짝 강조 */
+.tmc-scroll.active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* 카드 */
+.tmc-slide-card {
+  flex: 0 0 auto;
+  width: 160px;
+}
+
+/* ===== 카드 ===== */
+.tm-card {
+  /* background: #fff; */
+  border-radius: 16px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* 👉 카드 높이 고정 */
+  height: 220px; /* 원하는 값으로 고정 */
+}
+
+.tm-media-wide img,
+.tm-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* hover 시 이미지만 상자 효과 */
+.tm-media-wide:hover {
+  cursor: pointer;
+}
+
+.tm-body {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tm-name {
+  margin-left: 0; /* ✅ 왼쪽 여백 제거 */
+  display: flex;
+  flex-direction: column; /* 줄바꿈 */
+  align-items: flex-start; /* ✅ 왼쪽 정렬 */
+  gap: 5px;
+  text-align: left; /* ✅ 텍스트도 왼쪽 정렬 */
+  width: 100%; /* 카드 안에서 꽉 차게 */
+}
+
+/* 아침/점심/저녁 */
+.tm-prefix {
+  font-size: 12px;
+  font-weight: 600;
+  color: #008a69; /* 회색 계열 */
+  letter-spacing: 0.5px;
+}
+
+.tm-sub {
+  font-size: 12px;
+  color: #555;
+  margin: 0;
+}
+
+.tm-chip {
+  margin-top: 2px;
+  border: 0;
+  border-radius: 999px;
+  padding: 3px 10px;
+  background: #eaecee; /* ✅ 회색 배경 */
+  color: #6a6b6e; /* 글자색 진한 검정 */
+  font-size: 10px;
+  font-weight: 700;
+  align-self: flex-start;
+  cursor: pointer;
+  display: flex; /* 텍스트와 아이콘 정렬 */
+  align-items: center;
+  gap: 5px; /* 텍스트와 아이콘 사이 간격 */
+}
+
+.tm-chip .arrow {
+  font-size: 12px;
+  color: #6a6b6e; /* 화살표 색상도 글자랑 통일 */
+}

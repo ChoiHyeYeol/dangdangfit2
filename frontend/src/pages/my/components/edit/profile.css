@@ -1,0 +1,319 @@
+/* src/pages/profile/profile.css */
+
+:root {
+  --ink: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --card: #ffffff;
+  --accent: #16a34a;
+  --accent-ghost: #eafbef;
+  --radius: 16px;
+  /* --shadow: 0 8px 24px rgba(0, 0, 0, 0.08); */
+}
+
+.p-wrap {
+  padding: 16px;
+}
+
+.p-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0 14px;
+}
+
+.p-back {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+.p-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.p-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.p-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  text-align: left;
+}
+.p-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.p-card-desc {
+  grid-column: 1 / -1;
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.p-card-chev {
+  font-size: 22px;
+  color: var(--muted);
+}
+
+.p-form {
+  display: grid;
+  gap: 14px;
+}
+.p-field {
+  display: grid;
+  gap: 6px;
+}
+.p-label {
+  font-size: 13px;
+  color: var(--muted);
+}
+.p-input {
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  padding: 0 12px;
+  font-size: 14px;
+}
+.p-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.p-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+.p-btn {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #f9fafb;
+  cursor: pointer;
+  font-size: 14px;
+}
+.p-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.p-btn.ghost {
+  background: #fff;
+}
+
+.p-seg {
+  display: inline-flex;
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+.p-seg-item {
+  position: relative;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+.p-seg-item input {
+  display: none;
+}
+.p-seg-item.is-active {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.p-range {
+  width: 100%;
+}
+.p-range-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.p-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.p-chip {
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.p-chip.is-on {
+  background: var(--accent-ghost);
+  border-color: #a7e3bf;
+}
+/* 가운데 정렬 레이아웃 */
+.p-center-wrap {
+  min-height: 100dvh; /* 화면 중앙 */
+  display: grid;
+  place-items: center;
+  background: #f3f4f6; /* 바깥 배경 */
+  padding: 24px;
+}
+
+/* 카드 컨테이너 */
+.p-card-box {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--line, #e5e7eb);
+  padding: 20px 16px;
+  margin: 16px auto;
+  max-width: 480px; /* 중앙에 딱 맞게 */
+}
+
+/* 기존 p-head/p-title/p-form/p-field/p-input 등은 그대로 사용 */
+
+/* 비밀번호 입력 우측 버튼 */
+.p-input-with-btn {
+  position: relative;
+}
+.p-input-with-btn .p-input {
+  padding-right: 72px; /* 버튼 공간 */
+}
+.p-eye {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line, #e5e7eb);
+  background: #fff;
+  font-size: 12px;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* 에러 메시지 */
+.p-error {
+  margin-top: -4px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #b91c1c;
+}
+/* ===== 설문 위저드 공통 ===== */
+.sw-progress {
+  margin: 6px 0 10px;
+}
+.sw-step {
+  color: #ef6c00;
+  font-weight: 800;
+}
+.sw-div {
+  color: #9ca3af;
+  padding: 0 4px;
+}
+
+.sw-question {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink, #111827);
+  margin: 8px 0 12px;
+}
+
+/* 카드 컨테이너(기존 카드 스타일 재활용) */
+.p-card-box {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--line, #e5e7eb);
+  padding: 20px 16px;
+  margin: 16px auto;
+  max-width: 480px;
+}
+
+/* 카드 그리드 / 카드 */
+.sw-grid {
+  display: grid;
+  gap: 14px;
+}
+.sw-card {
+  display: grid;
+  place-items: center;
+  min-height: 120px;
+  padding: 16px;
+  background: #fff;
+  border: 2px solid #cfe8ff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease,
+    background 0.12s ease;
+}
+.sw-card:hover {
+  transform: translateY(-1px);
+}
+.sw-card.is-selected {
+  border-color: #23a0ff;
+  background: #eef7ff;
+}
+.sw-card-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* 칩 영역 간격 (multi 문항) */
+.sw-chips {
+  margin-top: 2px;
+}
+
+/* 하단 버튼 */
+.sw-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px auto 8px;
+  max-width: 480px;
+}
+.sw-btn {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line, #e5e7eb);
+  font-size: 15px;
+  cursor: pointer;
+}
+.sw-btn.primary {
+  background: #107a64;
+  border-color: #107a64;
+  color: #fff;
+}
+.sw-btn.ghost {
+  background: #fff;
+  color: #0f172a;
+}
+.sw-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

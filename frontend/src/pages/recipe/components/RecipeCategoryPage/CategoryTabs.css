@@ -1,0 +1,92 @@
+/* 헤더 아래, 스크롤 영역 밖 */
+.cat-rail-wrap {
+  position: relative;
+  background: #ffffff;
+  /* border-bottom: 1px solid #eee; */
+  border-bottom: none;
+}
+
+/* 가로 스크롤 스트립 */
+.cat-rail {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain; /* ← 오타 수정 */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+
+  border-bottom: 1px solid #d9d9d9; /* 회색 라인 */
+  position: relative; /* ⬅️ z-index 기준 */
+  z-index: 1; /* ⬅️ 내용/라인을 페이드 위로 */
+}
+.cat-rail::-webkit-scrollbar {
+  display: none;
+}
+.cat-rail.dragging {
+  cursor: grabbing;
+}
+
+/* 칩 폭을 넉넉히 → 실제로 넘치게 */
+.cat-pill {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 72px; /* ← 중요: 넘치게 만드는 핵심 */
+  text-align: center;
+  padding: 13px 10px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #8a8f95;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.cat-pill.is-active {
+  color: #0a8a60;
+  font-weight: 700;
+  border-bottom-color: #0a8a60;
+  border-bottom-width: 3px;
+}
+
+/* 페이드가 라인/내용을 덮지 않도록 */
+.fade {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 2px; /* ⬅️ 밑줄 안 가리게 살짝 띄움 */
+  width: 20px;
+  z-index: 0; /* ⬅️ 레일(콘텐츠)보다 아래 */
+}
+.fade.left {
+  left: 0;
+  background: linear-gradient(90deg, #fff 35%, rgba(255, 255, 255, 0));
+}
+.fade.right {
+  right: 0;
+  background: linear-gradient(270deg, #fff 35%, rgba(255, 255, 255, 0));
+}
+
+/* ✅ 시간별(탭 4개)일 때 균등 배치 */
+.cat-rail.is-short {
+  overflow-x: hidden;
+  gap: 0;
+  padding: 12px 0 0; /* 좌우 패딩 제거 → 전체를 꽉 채움 */
+  justify-content: space-between;
+}
+
+.cat-rail.is-short .cat-pill {
+  flex: 1 1 0; /* 4등분으로 균등 분배 */
+  min-width: 0;
+  text-align: center;
+  padding: 13px 0; /* 좌우 패딩도 제거 */
+}
+
+/* ✅ 초록선 = 버튼 폭 100% */
+.cat-rail.is-short .cat-pill.is-active {
+  border-bottom: 3px solid #0a8a60; /* 버튼 전체 폭에 맞춰서 라인 생성 */
+  font-weight: 700;
+  color: #0a8a60;
+}

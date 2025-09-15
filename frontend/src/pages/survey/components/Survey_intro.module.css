@@ -1,0 +1,87 @@
+/* ==============================
+   Survey_introDone.module.css
+   - Intro / Done 공통 스타일
+   ============================== */
+
+/* 전체 컨테이너 */
+.surveyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* 배경 원 (인트로/던 공통으로 사용 가능) */
+.bgWrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background-position: center;
+  z-index: -1;
+  margin-top: -220px;
+}
+
+/* 이미지 감싸는 래퍼 */
+.surveyImageWrapper {
+  margin-bottom: 20px;
+}
+
+/* =========================
+   Intro / Done 일러스트 크기 분리
+   (컨테이너에 .intro / .done 클래스 붙여서 자동 적용)
+   ========================= */
+
+/* Intro 화면의 일러스트 크기 */
+.intro .surveyImage {
+  width: 400px;
+  height: auto;
+}
+
+/* Done 화면의 일러스트 크기 */
+.done .surveyImage {
+  width: 300px;
+  height: auto;
+}
+
+/* =========================
+   제목 텍스트 (Intro에서 주로 사용)
+   ========================= */
+.surveyTitle {
+  font-size: 35px;
+  font-weight: bold;
+  color: #ff8000;
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* =========================
+   CTA 버튼 (Intro/Done 공통)
+   ========================= */
+.surveyButton {
+  width: 100%; /* 가로 꽉 채우기 */
+  max-width: 480px; /* 최대 폭 제한 */
+  height: 38px; /* 버튼 높이 */
+  border: none;
+  border-radius: 999px; /* pill 형태 */
+  background: var(--cPrimary); /* 청록 메인 색상 */
+  color: #fff; /* 흰 글씨 */
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  margin-bottom: 12px; /* 화면 하단 안전 여백 */
+  box-shadow: 0 6px 16px rgba(24, 167, 123, 0.25); /* 버튼 그림자 */
+  transition: transform 0.05s ease, filter 0.2s ease;
+}
+
+/* 버튼 hover 시 색상 변화 */
+.surveyButton:hover {
+  background-color: #1aba95; /* hover 상태에서 조금 더 밝은 청록 */
+}

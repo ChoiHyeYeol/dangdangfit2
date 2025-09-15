@@ -1,0 +1,57 @@
+/* 공통 버튼 기본 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* 사이즈 */
+.btn-sm {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+.btn-md {
+  font-size: 16px;
+  padding: 10px 16px;
+}
+.btn-lg {
+  font-size: 18px;
+  padding: 14px 20px;
+}
+
+/* 변형 (variant) */
+.btn-primary {
+  background: #008060; /* Figma Primary 색 */
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #00694d;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid #008060;
+  color: #008060;
+}
+.btn-outline:hover {
+  background: rgba(0, 128, 96, 0.08);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #008060;
+  padding: 0; /* 링크처럼 보이게 */
+}
+.btn-ghost:hover {
+  text-decoration: underline;
+}
+
+/* 가로 전체 버튼 */
+.btn-block {
+  width: 100%;
+}

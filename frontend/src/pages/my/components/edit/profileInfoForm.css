@@ -1,0 +1,183 @@
+/* 폼 전체 */
+.p-form {
+  display: grid;
+  gap: 22px; /* 필드 간격 넉넉히 */
+}
+
+/* 필드 그룹 */
+.p-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 라벨 */
+.p-label {
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+  padding-left: 2px;
+}
+
+/* 입력 필드 */
+.p-input {
+  height: 46px;
+  border: 1px solid #e2e2e7;
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+  background: #fafafa;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.p-input:focus {
+  outline: none;
+  border-color: #008a69;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 138, 105, 0.15);
+}
+
+/* placeholder */
+.p-input::placeholder {
+  color: #a0a0a5;
+}
+
+/* 카드 박스 */
+.p-card-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 22px;
+  margin: 20px auto;
+  max-width: 420px;
+  /* box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06); */
+}
+
+.p-btn.inline {
+  white-space: nowrap;
+  /* background: #f3f3f6; */
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 42px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.p-btn.inline:hover {
+  background: #d4d4d4;
+}
+/* 하단 액션 버튼 영역 */
+.p-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* 공통 버튼 */
+.p-btn {
+  background-color: #e9e9e9;
+  border: none;
+  border-radius: 22px;
+  padding: 0 20px;
+  height: 44px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ghost 버튼 (취소 버튼용) */
+.p-btn.ghost {
+  /* background: linear-gradient(180deg, #f8f8fa 0%, #eaeaef 100%); */
+  white-space: nowrap;
+  color: #333;
+  /* box-shadow: 0 4px 10px rgba(0, 138, 105, 0.25); */
+}
+.p-btn.ghost:hover {
+  background: #d4d4d4;
+}
+
+/* Primary 버튼 (저장 버튼) */
+.p-btn.primary {
+  background: #008a69;
+  color: #fff;
+  /* box-shadow: 0 4px 10px rgba(0, 138, 105, 0.25); */
+}
+.p-btn.primary:hover {
+  background: #086b51;
+}
+.p-btn.primary:active {
+  background: #007a5b;
+}
+
+/* 메시지 */
+.p-error {
+  font-size: 13px;
+  color: #ff3b30;
+  font-weight: 500;
+}
+
+.p-success {
+  font-size: 13px;
+  color: #34c759;
+  font-weight: 500;
+}
+/* 입력 + 아이콘 감싸는 영역 */
+.p-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* 입력칸 (아이콘 공간 확보) */
+.p-input-wrap .p-input {
+  width: 100%;
+  padding-right: 40px; /* ✅ 오른쪽 공간 확보 */
+}
+
+/* 눈 아이콘 버튼 */
+.p-eye {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #a7a7a7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.p-eye svg {
+  width: 18px;
+  height: 18px;
+}
+/* 하단 로그아웃 & 회원탈퇴 바 */
+.p-account-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+  margin: 18px 0 24px;
+}
+.p-account-actions button,
+.p-account-actions .divider {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+.p-account-actions button:hover {
+  color: #008a69;
+}
+.p-account-actions .danger:hover {
+  color: #dc2626;
+} /* 회원탈퇴 경고 색상 */

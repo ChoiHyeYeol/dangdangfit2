@@ -1,0 +1,50 @@
+.desert-card {
+  display: flex;
+  justify-content: space-between; /* 좌/우 배치 */
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 16px;
+  /* margin-bottom: 10px; */
+  padding-top: 40px;
+  /* border-radius: 10px; */
+  /* box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08); */
+}
+
+.desert-left {
+  font-size: 15px;
+  font-weight: 800;
+  color: #000000;
+}
+
+.highlight {
+  color: #008a69; /* 포인트 초록 */
+}
+
+.desert-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* 오른쪽 정렬 */
+  gap: 6px;
+}
+
+.desert-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #000;
+}
+
+.desert-link,
+.desert-info {
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+}
+
+.desert-link:hover {
+  color: #008a69;
+  text-decoration: underline;
+}
+
+.desert-info {
+  color: #aaa;
+}

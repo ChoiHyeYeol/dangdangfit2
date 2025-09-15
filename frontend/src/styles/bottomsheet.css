@@ -1,0 +1,110 @@
+:root {
+  --sheet-radius: 16px;
+  --sheet-max-h: 80dvh; /* JS에서 덮어씀 */
+  --sheet-min-h: 56svh; /* JS에서 덮어씀 */
+}
+
+/* ✅ 프레임(.app) 내부만 덮도록 */
+.sheet-host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* backdrop에서 다시 켬 */
+  z-index: 1200;
+}
+
+.sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: end; /* 하단 정렬 → 아래에서 올라오는 느낌 */
+  justify-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0; /* 배경은 페이드만 (이동 X) */
+  transition: opacity 0.24s ease-out;
+  pointer-events: auto;
+}
+
+/* 열릴 때만 부드럽게 페이드 인 */
+.sheet-host.open .sheet-backdrop {
+  opacity: 1;
+}
+
+/* === 시트 === */
+.sheet {
+  width: 100%;
+  background: #fff;
+  border-top-left-radius: var(--sheet-radius);
+  border-top-right-radius: var(--sheet-radius);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+
+  /* 아래에서 위로: transform만 애니메이션(레이아웃 영향 없음) */
+  transform: translate3d(0, 100%, 0);
+  transform-origin: bottom center;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  backface-visibility: hidden;
+  will-change: transform;
+
+  max-height: var(--sheet-max-h);
+  min-height: var(--sheet-min-h);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+/* 열림 상태 */
+.sheet.open {
+  transform: translate3d(0, 0, 0);
+}
+
+.sheet-handle {
+  width: 44px;
+  height: 5px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  margin: 8px auto 4px;
+}
+
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.sheet-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+.sheet-close {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px;
+}
+
+.sheet-body {
+  padding: 16px;
+  overflow: auto;
+  overscroll-behavior: contain; /* 배경으로 스크롤 전파 방지 */
+  -ms-overflow-style: none; /* (선택) 내부 스크롤바 숨김 */
+  scrollbar-width: none;
+}
+.sheet-body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* 접근성: 모션 최소화 환경 */
+@media (prefers-reduced-motion: reduce) {
+  .sheet-backdrop {
+    transition: opacity 0.001s linear;
+  }
+  .sheet {
+    transition: transform 0.001s linear;
+  }
+}

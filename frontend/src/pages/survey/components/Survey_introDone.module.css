@@ -1,0 +1,153 @@
+/* ===========================
+   Intro / Done 통합 공통 CSS
+   =========================== */
+:root {
+  --cPrimary: #008a69; /* 메인 청록 */
+  --cPrimaryHover: #1aba95; /* 버튼 hover */
+  --cAccent: #ff8000; /* 주황 포인트 */
+  --cAccentLight: #ffcd94; /* 연한 주황(보조) */
+  --cBg: #ffffff; /* 배경 */
+  --cSurface: #baf8e9; /* 선택 서피스 */
+  --cBorder: #c7c7c7; /* 테두리 */
+  --cTextMain: #000000; /* 기본 텍스트 */
+  --cTextSub: #7c7c7c; /* 보조 텍스트 */
+}
+
+/* 컨테이너 */
+.surveyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  min-height: 100vh;
+
+  /* 반응형 패딩 (상단여백: 모바일~데스크톱) */
+  padding: clamp(80px, 20vh, 160px) 16px 90px;
+  box-sizing: border-box;
+  background: var(--cBg);
+  /* overflow: hidden; */
+  font-family: "Noto Sans KR", sans-serif;
+  color: var(--cTextMain);
+
+  --titleColor: var(--cAccent); /* 기본: 주황(인트로) */
+  --subColor: var(--cPrimary); /* 기본: 청록 */
+}
+
+/* 완료 화면 테마 */
+.done {
+  --titleColor: var(--cPrimary);
+  --subColor: var(--cPrimary);
+}
+
+/* 배경 패턴 */
+.bgWrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  margin-top: -220px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 상단 콘텐츠 묶음 */
+.topGroup {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 메인 일러스트 */
+.heroImg {
+  max-width: 90%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  position: relative;
+  z-index: 3;
+}
+
+/* 제목 / 메시지 */
+.titleMain {
+  margin: -1px 0 12px;
+  font-size: clamp(28px, 6vw, 25px);
+  font-weight: 700;
+  color: var(--titleColor);
+  text-align: center;
+  letter-spacing: -0.2px;
+  line-height: 1.2; /* ✅ 음수 제거 */
+  position: relative;
+  z-index: 3;
+}
+.titleSub {
+  margin: 0;
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 700;
+  color: var(--subColor);
+  text-align: center;
+  line-height: 1.4;
+  position: relative;
+  z-index: 3;
+}
+
+/* 완료 화면 문구 */
+.messageBox {
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* CTA 버튼 */
+.ctaBtn {
+  width: 100%;
+  max-width: 330px; /* 최대 400px로 제한 */
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: var(--cPrimary);
+  color: var(--cBg);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  margin: 50px auto; /* 중앙 정렬 */
+  box-shadow: 0 6px 16px rgba(0, 138, 105, 0.25);
+  transition: transform 0.15s ease, filter 0.2s ease, background-color 0.2s ease;
+  /* position: relative; */
+  z-index: 2;
+  position: sticky; /* ✅ 항상 화면 하단 고정 */
+  bottom: 20px; /* 화면 하단에서 20px 위 */
+  padding: 14px 16px; /* 혹시 길이 짧을 경우 여백 확보 */
+  margin-top: auto; /* 위 콘텐츠가 차지하는 만큼 밀어내고 항상 하단으로 */
+  margin-bottom: 24px; /* 앱 바닥이랑 살짝 띄움 */
+}
+.done .ctaBtn {
+  margin-top: 100px; /* ✅ intro보다 여유있게 띄워줌 */
+  margin-bottom: 24px; /* 앱 바닥과 간격 유지 */
+}
+.ctaBtn:hover {
+  /* background: var(--cPrimaryHover); */
+  transform: scale(1.02);
+}
+.ctaBtn:active {
+  transform: scale(0.98);
+  filter: brightness(0.96);
+}
+
+@media (max-width: 480px) {
+  .surveyContainer {
+    padding: 60px 12px 48px;
+  }
+
+  .ctaBtn {
+    max-width: 80%; /* 더 넓게 보이도록 */
+  }
+}

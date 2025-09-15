@@ -1,0 +1,60 @@
+/* 카드 그리드 */
+.cardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* 카드 버튼 */
+.cardBtn {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #c7c7c7;
+  background: #ffffff;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardBtn:hover {
+  border-color: #7c7c7c;
+}
+
+/* 활성(선택) 상태: 테두리/배경 */
+.cardBtn.active {
+  border-color: #008a69;
+  background: #baf8e9;
+}
+
+/* 활성(선택) 상태: 글씨 색도 청록으로 */
+.cardBtn.active .cardLabel {
+  color: #008a69;
+}
+
+/* 이미지: 아래 간격을 줄여서 텍스트와 붙는 느낌 개선 */
+.cardImage {
+  width: 120px;
+  height: auto;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* 라벨(제목 텍스트) */
+.cardLabel {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* 접근성: 키보드 포커스 표시(선택) */
+.cardBtn:focus-visible {
+  outline: 3px solid rgba(0, 138, 105, 0.35);
+  outline-offset: 2px;
+  border-color: #008a69;
+}

@@ -1,0 +1,23 @@
+.category-list-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개 항목을 배치 */
+  /* gap: 10px; 항목 사이의 간격 */
+  /* padding: 20px; */
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* 스마트폰 등 작은 화면에서는 한 줄에 3개 또는 2개로 변경 */
+/* @media (max-width: 768px) {
+  .category-list-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-list-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+} */

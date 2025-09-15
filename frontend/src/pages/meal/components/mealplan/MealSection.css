@@ -1,0 +1,81 @@
+.meal-section-slider {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 25px; /* 👉 좌우 여백을 여기서만 관리 */
+  overflow: visible; /* 카드 그림자 안 잘리게 */
+}
+
+/* 전체 카드 트랙 */
+.cards-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+/* 카드 하나 */
+.meal-card {
+  flex: 0 0 85%; /* 👉 카드가 화면의 85% 차지 */
+  margin: 0 8px;
+  background: #f7f9f8;
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  /* padding: 16px; */
+  min-height: 240px;
+  max-height: 320px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 현재 카드 강조 */
+.meal-card.active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+/* 옆 카드 축소 */
+.meal-card.inactive {
+  transform: scale(0.9);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #a4ada7; /* 앱 톤에 맞춘 녹색 */
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0.4; /* ✅ 기본은 은은하게 */
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  opacity: 1; /* ✅ hover 시 뚜렷해짐 */
+  background: #567a64; /* ✅ 진한 녹색 */
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn.left {
+  left: 1px;
+}
+.nav-btn.right {
+  right: 1px;
+}

@@ -1,0 +1,32 @@
+/* 상단 개수 + 전체삭제 */
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
+
+.collection-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.collection-clear-btn {
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.collection-clear-btn:hover {
+  background: #f7f7f7;
+}
+
+/* 아이템 리스트 전체 */
+.collection-list {
+  padding: 0 16px 16px;
+}

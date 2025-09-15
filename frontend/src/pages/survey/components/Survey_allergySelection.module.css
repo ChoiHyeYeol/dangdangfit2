@@ -1,0 +1,382 @@
+/* ===========================
+   검색 영역 (input + dropdown 한 덩어리)
+   =========================== */
+.searchWrap {
+  width: 100%;
+  max-width: clamp(360px, 92vw, 560px);
+  margin: 20px auto 20px;
+  position: relative; /* 버튼/드롭다운 기준 */
+  z-index: 20; /* 아래 카드들 위로 */
+}
+
+/* input이 컨테이너 밖으로 커지지 않도록 */
+.searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  height: 44px;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 22px;
+  padding: 0 44px 0 16px; /* 오른쪽 돋보기 공간 */
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    border-radius 0.15s ease;
+  background: #fff;
+}
+.searchInput:focus {
+  border-color: #008a69;
+  box-shadow: 0 0 0 4px rgba(0, 138, 105, 0.1);
+}
+
+/* focus/검색어 입력으로 드롭다운 열릴 때 input 아래 라운드 제거 + 약간 강조 */
+.searchWrapOpen .searchInput {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #008a69;
+  box-shadow: 0 0 0 4px rgba(0, 138, 105, 0.08);
+}
+
+/* 돋보기 버튼 (아이콘은 JSX에서 회색/초록 토글) */
+.searchBtn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 21; /* input 위로 */
+}
+.iconImg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* ===== 드롭다운: input과 '딱 붙게' (1px 겹침으로 경계선 자연스럽게) ===== */
+.searchDropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 43px; /* ✅ input(44px)보다 1px 위로 겹치게 */
+  background: #fff;
+  border: 1.5px solid #c7c7c7;
+  border-top: none; /* 위쪽 보더 제거 -> 한 덩어리 */
+  border-bottom-left-radius: 22px; /* 아래만 라운드 */
+  border-bottom-right-radius: 22px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  z-index: 30; /* 카드/카테고리보다 위 */
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+/* 드롭다운 열림 시, 경계색을 input과 맞춰 더 자연스럽게 */
+.searchWrapOpen .searchDropdown {
+  border-color: #008a69;
+}
+
+/* 제안 리스트 */
+.suggestionList {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+.suggestionItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+.suggestionItem:hover {
+  background: #f5f5f5;
+}
+.suggestionName {
+  font-weight: 600;
+}
+.suggestionCat {
+  font-size: 12px;
+  color: #777;
+}
+
+/* ===== 검색 결과 없음: 큼직하고 중앙정렬 ===== */
+.noResultBox {
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.noResultIconImg {
+  width: 72px;
+  height: 72px;
+  display: block;
+  margin: 0 0 16px;
+  opacity: 0.7;
+}
+.noResultText {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ===========================
+   카테고리 카드
+   =========================== */
+.categoryStack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 12px;
+  z-index: 5;
+}
+.categoryCard {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fafafa;
+}
+.categoryHeader {
+  margin-bottom: 12px;
+}
+.categoryBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: #008a69;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+.pillGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pillBtn {
+  min-width: 90px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 22px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pillBtn:hover {
+  border-color: #777;
+}
+.pillSelected {
+  border-color: #008a69;
+  background: #baf8e9;
+  color: #008a69;
+  font-weight: 600;
+}
+
+/* ===========================
+   기타 입력: 하단 고정 + 공통 폭
+   =========================== */
+.etcSection {
+  position: static;
+  left: 0;
+  bottom: 96px; /* 하단 버튼 바로 위 */
+  width: 100%;
+  background: #fff;
+  /* z-index: 25; 하단 버튼보다 위 */
+
+  padding: 12px 0;
+  max-height: 400px; /* 최대 높이 설정 */
+  overflow-y: auto; /* 스크롤 가능하게 설정 */
+}
+.etcInner {
+  max-width: clamp(360px, 92vw, 560px);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.etcHeader {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.etcRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.etcInput {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 22px;
+  padding: 0 14px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  display: block;
+}
+.etcInput:focus {
+  border-color: #008a69;
+  box-shadow: 0 0 0 4px rgba(0, 138, 105, 0.1);
+}
+.etcAddBtn {
+  flex: 0 0 72px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 2px solid #008a69;
+  background: #008a69;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  text-align: center;
+}
+.etcAddBtn:hover {
+  background: #00725a;
+}
+.othersChips {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.otherChip {
+  background: #baf8e9;
+  border-radius: 16px;
+  padding: 6px 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.otherChipX {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ===========================
+   모달
+   =========================== */
+.modalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.modalCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: clamp(360px, 92vw, 560px);
+  margin: 0 auto;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+.modalTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.modalSection {
+  margin-bottom: 12px;
+}
+.modalLabel {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.modalEmpty {
+  font-size: 13px;
+  color: #777;
+}
+.modalList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.modalPill {
+  background: #f0f0f0;
+  border-radius: 16px;
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+.modalCancel,
+.modalSubmit {
+  flex: 1 1 50%;
+  height: 48px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.modalCancel {
+  background: #fff;
+  color: #008a69;
+  border-color: #008a69;
+}
+.modalSubmit {
+  background: #008a69;
+  color: #fff;
+  border-color: #008a69;
+}
+.modalSubmit:disabled {
+  background: #c7c7c7;
+  border-color: #c7c7c7;
+  cursor: not-allowed;
+}
+/* ===========================
+   검색 집중 모드 스크림
+   =========================== */
+.scrim {
+  position: fixed;
+  inset: 0; /* 화면 전체 덮기 */
+  background: rgba(0, 0, 0, 0.28); /* 살짝 어두운 그레이 */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 99;
+  cursor: pointer;
+}
+/* ===========================
+   검색 집중 모드 스크림 (전체 화면)
+   =========================== */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* 하단 바를 스크림보다 위로 올려주기 */
+:global(.bottomBar) {
+  position: relative;
+  z-index: 30 !important;
+}

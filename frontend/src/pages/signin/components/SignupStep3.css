@@ -1,0 +1,69 @@
+.signup-complete-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* 상단 영역 (가운데 정렬) */
+.complete-top {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 세로 가운데 */
+  /* gap: 2px; */
+}
+
+.check-circle {
+  /* width: 90px; */
+  /* height: 90px; */
+  border-radius: 50%;
+  /* background: #008a69; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .check-icon {
+  width: 45px;
+  height: 45px;
+} */
+
+.welcome-title {
+  font-size: 20px;
+  font-weight: 800;
+  /* color: #008a69; */
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #444;
+  margin: 0;
+}
+
+/* 버튼: Step1, Step2와 동일 스타일 */
+.donestart-btn {
+  background-color: #008a69;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  /* max-width: 320px; */
+  align-self: center;
+  margin-top: auto; /* 하단 고정 느낌 */
+}
+
+.start-btn:disabled {
+  background-color: #b5dcd2;
+  cursor: not-allowed;
+}

@@ -1,0 +1,64 @@
+.detail-step {
+  display: flex;
+  flex-direction: column; /* 세로 배치 */
+  align-items: flex-start; /* 텍스트는 왼쪽 정렬 */
+  gap: 10px; /* 텍스트와 이미지 사이 간격 */
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0; /* 단계 구분선 */
+}
+
+.step-info {
+  width: 100%;
+}
+
+.step-badge {
+  display: inline-block;
+  background: #0a8a60; /* 좀 더 진한 초록 */
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 5px 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 뱃지 살짝 강조 */
+}
+
+.step-desc {
+  font-size: 15px; /* 글씨 조금 키움 */
+  color: #222; /* 더 진하게 */
+  margin: 0 0 6px 0;
+  line-height: 1.6;
+  width: 100%;
+  word-break: keep-all; /* 단어 단위 줄바꿈 */
+}
+
+/* ✅ 이미지 */
+.step-img {
+  width: 100%;
+  max-width: 340px; /* 앱 카드 폭에 맞춤 */
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* 사진도 살짝 그림자 */
+  /* margin-left: 5px; */
+  max-height: 220px; /* 너무 큰 이미지 제한 */
+}
+
+/* .no-step-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  color: #9ca3af;
+  font-size: 13px;
+  font-weight: 600;
+  height: 160px;
+  text-align: center;
+  border: 1px dashed #ddd;
+} */
+/* .no-step-image {
+  width: 100%;
+  max-width: 340px; 
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); 
+} */

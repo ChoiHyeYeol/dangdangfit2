@@ -1,0 +1,64 @@
+/* src/components/MealUpdatePopup.css */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* 최상단 */
+}
+
+.popup {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 20px;
+  width: 70%;
+  max-width: 290px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.popup-message {
+  font-size: 15px;
+  color: #333;
+  /* font-weight: 700; */
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.popup-btn {
+  padding: 8px 40px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.popup-btn.cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.popup-btn.cancel:hover {
+  background: #e0e0e0;
+}
+
+.popup-btn.confirm {
+  background: #0a8a60;
+  color: white;
+}
+
+.popup-btn.confirm:hover {
+  background: #087a55;
+}

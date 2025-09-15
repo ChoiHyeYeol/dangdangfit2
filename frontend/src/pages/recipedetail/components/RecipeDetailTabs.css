@@ -1,0 +1,34 @@
+/* 바깥 배경 */
+.detail-tabs-wrapper {
+  background: #fff; /* ✅ 전체 흰색 */
+  padding: 1px 0; /* 위아래 여백 */
+}
+.detail-tabs {
+  display: flex;
+  justify-content: space-between;
+  background: #f0f0f0; /* 바탕 회색 */
+  border-radius: 25px;
+  padding: 4px;
+  width: 90%; /* ✅ 전체 폭의 60% 정도로 줄이기 */
+  margin: 16px auto; /* ✅ 가운데 정렬 */
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); /* 살짝 그림자 */
+}
+
+.detail-tab {
+  flex: 1;
+  padding: 8px 0;
+  border: none;
+  border-radius: 25px; /* 캡슐 안쪽에서도 둥글게 */
+  background: transparent; /* 기본 투명 */
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  /* transition: all 0.4s ease; */
+}
+
+.detail-tab.active {
+  background: #0a8a60; /* ✅ 초록색 pill */
+  color: #fff; /* ✅ 흰 글씨 */
+  font-weight: 600;
+}

@@ -1,0 +1,85 @@
+/* src/pages/my/components/MyGreetingHeader.css */
+.mh-header {
+  width: 90%;
+  max-width: 330px;
+  margin: 0 auto 30px;
+  background: #fff;
+}
+
+.mh-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.mh-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ✅ 양끝 정렬 */
+  gap: 12px;
+}
+
+.mh-texts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1; /* ✅ 좌측 텍스트가 가로를 넉넉히 사용 */
+  min-width: 0; /* 줄바꿈 안전 */
+}
+
+.mh-greet {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  color: #111;
+}
+
+.nicksyle {
+  font-weight: 900; /* 닉네임 강조 */
+  color: #111; /* 진한 기본색 */
+}
+
+.mh-message {
+  font-size: 15px;
+  font-weight: 500; /* 살짝 가볍게 */
+  color: #000000; /* 차분한 회색 */
+  margin-left: 2px; /* 닉네임과 살짝 띄우기 */
+}
+
+.pregweek-text {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.pregweek-highlight {
+  font-weight: 800;
+  color: #008a69;
+}
+
+.mh-icon {
+  /* ✅ 오른쪽 아이콘 컨테이너 */
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.mh-icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffe7e7;
+  display: grid;
+  place-items: center;
+}
+
+.mh-profile {
+  width: 32px;
+  height: 32px;
+}
+
+@media (min-width: 480px) {
+  .mh-greet {
+    font-size: 19px;
+  }
+}

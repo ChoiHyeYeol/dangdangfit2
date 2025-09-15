@@ -1,0 +1,33 @@
+:where(.tb-screen) {
+  --bg: #ffffff;
+  --ink: #0f172a;
+}
+
+/* 화면 중앙 배치 */
+.tb-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  text-align: center;
+  gap: 5px; /* JSON ↔ 텍스트 간격 좁게 */
+}
+
+/* JSON 크기는 JSX에서 style로 제어 */
+
+/* 굵고 큰 텍스트 */
+.tb-screen .loading-text {
+  font-size: 25px;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.6; /* 줄간격 여유 있게 */
+  text-align: center; /* 중앙 정렬 */
+}
+.lottie-container {
+  width: 240px;
+  height: 240px;
+  margin-bottom: 4px; /* 텍스트와 여백 */
+  margin-top: 40px; /* 위에서 조금 내리기 */
+}

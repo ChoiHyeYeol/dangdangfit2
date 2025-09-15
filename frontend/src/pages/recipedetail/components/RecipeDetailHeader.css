@@ -1,0 +1,94 @@
+.detail-header {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 1px; */
+  background: #fff;
+  /* border-radius: 8px; */
+  overflow: hidden;
+  /* border-bottom: 1px solid #eee; */
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); */
+}
+
+.detail-header__image {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.detail-header__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-header__back {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.detail-header__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.detail-header__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.detail-header__likes {
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* ✅ 세로 정렬 */
+  /* gap: 6px; */
+}
+
+.heart-icon {
+  cursor: pointer;
+  color: #ccc;
+  font-size: 20px;
+}
+
+.heart-icon.liked {
+  color: #ff6b6b;
+}
+
+.likes-count {
+  font-size: 14px;
+  color: #666;
+}
+.likes-count.liked {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+/* 이미지 없는 경우 placeholder */
+.detail-header__image .no-image {
+  width: 100%;
+  height: 100%; /* 이미지랑 동일 높이 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6; /* 연한 회색 배경 */
+  color: #9ca3af; /* 텍스트 색 */
+  font-size: 16px;
+  font-weight: 500;
+}
+.detail-header__likes-placeholder {
+  width: 40px; /* 하트+숫자 공간 차지 */
+  height: 24px;
+}

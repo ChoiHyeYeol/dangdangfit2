@@ -1,0 +1,67 @@
+.meal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border-top: 1px solid #ddd; */
+  max-width: 90%; /* 구분선 줄이기 */
+  margin: 0 auto; /* 가운데 정렬 */
+  /* 아침헤더도 바꾸고 싶으면 얘랑 같게 */
+  padding: 9px 1px;
+}
+
+.meal-item:first-child {
+  border-top: none;
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1; /* ✅ 버튼 영역 침범하지 않고 남은 공간만 차지 */
+  min-width: 0; /* ✅ 말줄임 처리를 위해 필요 */
+}
+
+.food-icon {
+  width: 40px;
+  height: 40px;
+  /* color: #4caf50; */
+}
+.food-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+}
+
+.recipe-button {
+  font-size: 12px;
+  padding: 3px 7px;
+  background-color: #e4e4e4;
+  color: #a7a7a7;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.meal-item-list.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 160px; /* 카드 높이 확보 */
+  gap: 16px; /* 아이콘과 텍스트 간격 */
+}
+
+/* .meal-item-list.loading .loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #ddd;
+  border-top-color: #008a69;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+} */
+
+.meal-item-list.loading .loading-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #008a69;
+  text-align: center;
+}

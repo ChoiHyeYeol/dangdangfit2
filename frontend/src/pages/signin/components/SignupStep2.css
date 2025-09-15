@@ -1,0 +1,123 @@
+.signup-form-container {
+  /* max-width: 350px; */
+  /* margin: 40px auto; */
+  padding: 20px;
+  /* border-radius: 12px; */
+  /* background-color: #f5f5f5; */
+  text-align: center;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+.signup-container::-webkit-scrollbar,
+.signup-form-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+/* 안내 문구 */
+.form-intro {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* 폼 */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px; /* 입력 그룹 간격 */
+  text-align: left;
+  min-height: 100%; /* 세로 공간 채우기 */
+}
+
+/* 라벨 + 인풋 묶음 */
+.signup-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* 라벨과 인풋은 가깝게 */
+}
+
+.signup-form label {
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 빨간 * */
+.required {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.signup-form input {
+  padding: 10px;
+  border: 1.5px solid #dadfdd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.25s ease;
+  /* transition: border-color 0.25s ease, box-shadow 0.25s ease; */
+}
+
+/* 입력 중일 때 테두리 색 + 그림자 강조 */
+.signup-form input:focus {
+  border-color: #008a69; /* 초록색 테두리 */
+  /* box-shadow: 0 0 0 2px rgba(0, 138, 105, 0.2); 살짝 빛나는 효과 */
+  outline: none; /* 기본 파란 외곽선 제거 */
+}
+
+/* 버튼 */
+.submit-btn {
+  margin-top: 85px;
+  background-color: #008a69;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.submit-btn:hover:enabled {
+  background-color: #008a69;
+}
+
+.submit-btn:disabled {
+  background-color: #b5dcd2;
+  cursor: not-allowed;
+}
+
+/* 비밀번호 필드 감싸는 래퍼 */
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.password-wrapper input {
+  flex: 1;
+  padding-right: 40px; /* 아이콘 공간 */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #bbbbbb;
+  top: 50%; /* 인풋 세로 가운데 */
+  transform: translateY(-50%); /* 정중앙 */
+}
+.date-input {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #dadfdd;
+  border-radius: 6px;
+  font-size: 14px;
+}

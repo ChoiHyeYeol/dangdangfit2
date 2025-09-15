@@ -1,0 +1,76 @@
+src/pages/diet/CategoryPage.css .category-page-container {
+  padding: 16px;
+}
+
+.sub-category-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sub-category-list::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-category-item {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sub-category-item.active {
+  background-color: #83b631; /* 활성화된 탭의 배경색 */
+  color: #fff;
+}
+
+.sort-bar-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
+  position: relative; /* 기준 컨테이너 */
+  z-index: 2; /* 위로 띄움 */
+}
+
+.sort-dropdown {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 30px; /* 아이콘을 위한 여백 */
+  position: relative; /* 네이티브 select는 여기까지만 */
+  z-index: 2; /* 카드(grid)보다 위에 뜨도록 */
+}
+
+/* 레시피 그리드 스타일 */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

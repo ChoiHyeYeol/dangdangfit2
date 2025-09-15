@@ -1,0 +1,52 @@
+.meal-header {
+  flex: 0 0 auto; /* ✅ 헤더는 고정 높이 → flex에 휘둘리지 않음 */
+  position: relative;
+  display: flex;
+  justify-content: center; /* label은 가운데 */
+  align-items: center;
+  padding: 15px 16px;
+  padding-bottom: 5px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.meal-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%; /* ✅ 원하는 길이 (예: 60%) */
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.meal-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 12px; /* 안쪽 여백 */
+  border-radius: 999px; /* 둥글게 */
+  background: #ddf0ea; /* 연노랑 배경 */
+  color: #000000; /* 글자색 */
+  font-weight: 900;
+  font-size: 15px;
+  gap: 6px; /* 아침/아이콘 사이 여백 */
+  /* border: 1px solid #008a69; */
+}
+.meal-icon {
+  margin-left: 4px;
+}
+
+.refresh-btn {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+.refresh-btn:hover {
+  color: #222;
+}
